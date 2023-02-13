@@ -4,7 +4,7 @@ const app = express()
 const PORT = 3000
 
 let server = app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`)
+    console.log(`Listening on port is : ${PORT}`)
 })
 
 app.use(express.static(__dirname + '/public'))
