@@ -1,10 +1,9 @@
 const express = require('express')
 const app = express()
-const http = require('http').createServer(app)
 
 const PORT = 3000
 
-http.listen(PORT, () => {
+let server = app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
 })
 
@@ -12,7 +11,8 @@ app.use(express.static("public"));
 
 
 // Socket 
-const io = require('socket.io')(http)
+const io = require('socket.io')(server)
+
 
 io.on('connection', (socket) => {
     console.log('Connected...')
